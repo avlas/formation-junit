@@ -28,4 +28,44 @@ public class CalculatriceTest {
 		
 		assertEquals(retour, 4.0, 0.0);
 	}
+	
+	@Test
+	public void multiplicationTest() throws Exception {
+		double a = 1;
+		double b = 3;
+		
+		double retour = calculatrice.multiplication(a, b);
+		
+		assertEquals(retour, 3.0, 0.0);
+	}
+	
+	@Test
+	public void soustractionTest() throws Exception {
+		double a = 1;
+		double b = 3;
+		
+		double retour = calculatrice.soustraction(a, b);
+		
+		assertEquals(retour, -2.0, 0.0);
+	}
+	
+	@Test
+	public void divisionTest() throws Exception {
+		double a = 6;
+		double b = 3;
+		
+		double retour = calculatrice.division(a, b);
+		
+		assertEquals(retour, 2.0, 0.0);
+	}
+	
+	@Test(expected = ArithmeticException.class)
+	public void zeroDivisionTest() throws Exception {
+		double a = 12;
+		double b = 0;
+		
+		double retour = calculatrice.division(a, b);
+		
+		assertEquals(retour, 0.0, 0.0);
+	}
 }
