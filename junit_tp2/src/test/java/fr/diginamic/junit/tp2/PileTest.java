@@ -24,6 +24,19 @@ public class PileTest {
 		pile.setIntegers(ints);
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void pushNullListTest() {
+		pile.setIntegers(null);
+
+		pile.push(Integer.valueOf(4));
+	}
+	
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void pushOutOfIndexTest() {
+		pile.push(Integer.valueOf(7));
+		pile.push(Integer.valueOf(4));
+	}
+	
 	@Test
 	public void pushTest() {
 		pile.push(Integer.valueOf(12));
@@ -32,10 +45,18 @@ public class PileTest {
 		assertTrue(pile.getIntegers().contains(Integer.valueOf(12)));
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void popNullListTest() {
+		pile.setIntegers(null);
+
+		pile.pop();
+	}
+	
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void pushOutOfIndexTest() {
-		pile.push(Integer.valueOf(5));
-		pile.push(Integer.valueOf(4));
+	public void popOutOfIndexTest() {
+		pile.setIntegers(new ArrayList<Integer>());
+		
+		pile.pop();
 	}
 
 	@Test
@@ -45,6 +66,20 @@ public class PileTest {
 		assertEquals(1, pile.getIntegers().size());
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void popAllNullListTest() {
+		pile.setIntegers(null);
+
+		pile.popAll();
+	}
+	
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void popAllOutOfIndexTest() {
+		pile.setIntegers(new ArrayList<Integer>());
+
+		pile.popAll();
+	}
+	
 	@Test
 	public void popAllTest() {
 		pile.popAll();
@@ -53,6 +88,20 @@ public class PileTest {
 		assertTrue(pile.getIntegers().isEmpty());
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void peekNullTest() {
+		pile.setIntegers(null);
+		
+		pile.peek();
+	}
+	
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void peekOutOfIndexTest() {
+		pile.setIntegers(new ArrayList<Integer>());
+		
+		pile.peek();
+	}
+	
 	@Test
 	public void peekTest() {
 		assertEquals(Integer.valueOf(3), pile.peek());

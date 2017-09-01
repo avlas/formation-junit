@@ -11,6 +11,7 @@ public class Pile {
 
 	public Pile() {
 		sizeMax = 0;
+
 		if (integers == null) {
 			integers = new ArrayList<Integer>();
 		}
@@ -33,16 +34,28 @@ public class Pile {
 	}
 
 	public void pop() {
-		Integer lastElement = integers.get(integers.size()-1);
-		integers.remove(lastElement);
+		if (integers.size() <= 0) {
+			throw new ArrayIndexOutOfBoundsException();
+		} else {
+			Integer lastElement = integers.get(integers.size() - 1);
+			integers.remove(lastElement);
+		}
 	}
 
 	public void popAll() {
-		integers.clear();
+		if (integers.size() <= 0) {
+			throw new ArrayIndexOutOfBoundsException();
+		} else {
+			integers.clear();
+		}
 	}
 
 	public Integer peek() {
-		return integers.get(integers.size()-1);
+		if (integers.size() <= 0) {
+			throw new ArrayIndexOutOfBoundsException();
+		} else {
+			return integers.get(integers.size() - 1);
+		}
 	}
 
 	public List<Integer> getIntegers() {
