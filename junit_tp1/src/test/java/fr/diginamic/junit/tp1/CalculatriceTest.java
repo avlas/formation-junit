@@ -64,8 +64,6 @@ public class CalculatriceTest {
 		double a = 12;
 		double b = 0;
 		
-		double retour = calculatrice.division(a, b);
-		
-		assertEquals(retour, 0.0, 0.0);
+		calculatrice.division(a, b);
 	}
 }
