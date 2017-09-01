@@ -37,8 +37,7 @@ public class Pile {
 		if (integers.size() <= 0) {
 			throw new ArrayIndexOutOfBoundsException();
 		} else {
-			Integer lastElement = integers.get(integers.size() - 1);
-			integers.remove(lastElement);
+			integers.remove(integers.size() - 1);
 		}
 	}
 

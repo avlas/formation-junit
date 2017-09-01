@@ -13,36 +13,42 @@ import org.junit.Test;
 public class PileTest {
 
 	Pile pile;
-
+	Integer firstElement, secondElement, thirdElement, fourthElement;
+	
 	@Before
-	public void initTest() {
+	public void initTest() {		
 		pile = new Pile(2);
-
+		
 		List<Integer> ints = new ArrayList<Integer>();
-		ints.add(Integer.valueOf(1));
-		ints.add(Integer.valueOf(3));
+		firstElement = Integer.valueOf(1);
+		secondElement = Integer.valueOf(3);
+		ints.add(firstElement);
+		ints.add(secondElement);		
 		pile.setIntegers(ints);
+		
+		thirdElement = Integer.valueOf(7);
+		fourthElement = Integer.valueOf(4);	
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void pushNullListTest() {
 		pile.setIntegers(null);
 
-		pile.push(Integer.valueOf(4));
+		pile.push(thirdElement);
 	}
 	
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void pushOutOfIndexTest() {
-		pile.push(Integer.valueOf(7));
-		pile.push(Integer.valueOf(4));
+		pile.push(thirdElement);
+		pile.push(fourthElement);
 	}
 	
 	@Test
 	public void pushTest() {
-		pile.push(Integer.valueOf(12));
+		pile.push(thirdElement);
 
 		assertEquals(3, pile.getIntegers().size());
-		assertTrue(pile.getIntegers().contains(Integer.valueOf(12)));
+		assertTrue(pile.getIntegers().contains(thirdElement));
 	}
 
 	@Test(expected = NullPointerException.class)
@@ -63,6 +69,7 @@ public class PileTest {
 	public void popTest() {
 		pile.pop();
 
+		assertEquals(-1, pile.getIntegers().indexOf(secondElement));
 		assertEquals(1, pile.getIntegers().size());
 	}
 
@@ -104,7 +111,7 @@ public class PileTest {
 	
 	@Test
 	public void peekTest() {
-		assertEquals(Integer.valueOf(3), pile.peek());
+		assertEquals(secondElement, pile.peek());
 	}
 	
 	@After
