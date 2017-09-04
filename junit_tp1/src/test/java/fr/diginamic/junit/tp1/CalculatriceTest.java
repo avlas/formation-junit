@@ -10,7 +10,7 @@ public class CalculatriceTest {
 	Calculatrice calculatrice;
 	
 	@Before
-	public void initialition() {
+	public void setup() {
 		calculatrice = new CalculatriceImpl();
 	}
 
@@ -26,7 +26,7 @@ public class CalculatriceTest {
 		
 		double retour = calculatrice.addition(a, b);
 		
-		assertEquals(retour, 4.0, 0.0);
+		assertEquals(4.0, retour, 0.0);
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class CalculatriceTest {
 		
 		double retour = calculatrice.multiplication(a, b);
 		
-		assertEquals(retour, 3.0, 0.0);
+		assertEquals(3.0, retour, 0.0);
 	}
 	
 	@Test
@@ -46,7 +46,7 @@ public class CalculatriceTest {
 		
 		double retour = calculatrice.soustraction(a, b);
 		
-		assertEquals(retour, -2.0, 0.0);
+		assertEquals(-2.0, retour, 0.0);
 	}
 	
 	@Test
@@ -56,7 +56,7 @@ public class CalculatriceTest {
 		
 		double retour = calculatrice.division(a, b);
 		
-		assertEquals(retour, 2.0, 0.0);
+		assertEquals(2.0, retour, 0.0);
 	}
 	
 	@Test(expected = ArithmeticException.class)
